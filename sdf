@@ -12,7 +12,7 @@ issues = "$problems - список проблем экологи"
 
 @bot.event
 async def on_ready():
-    print(f'We have logged in as {bot.user}')                                                        #пытался сделать словарь с пролемами экологии
+    print(f'We have logged in as {bot.user}')                                                        #пытался сделать словарь с проблемами экологии
 
 @bot.command()
 async def help_(ctx):
