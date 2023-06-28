@@ -1,0 +1,61 @@
+import discord
+from discord.ext import commands
+
+
+
+intents = discord.Intents.default()
+intents.message_content = True
+
+bot = commands.Bot(command_prefix='$', intents=intents)
+
+issues = "$problems - список проблем экологи"
+
+@bot.event
+async def on_ready():
+    print(f'We have logged in as {bot.user}')                                                        #пытался сделать словарь с пролемами экологии
+
+@bot.command()
+async def help_(ctx):
+    print('$problems - список проблем экологии')
+    print('ozone_layer - как разрушается озоновый слой')
+    await ctx.send()
+
+
+
+
+@bot.command()
+async def problems(ctx):
+    f = open('text.txt', 'w', encoding='utf-8')
+    text = 'Проблемы загрязнения: сокращение озонового слоя, глобальное потепление, загрязнение атмосферы, парниковый эффект'
+    f.write(text)
+    await ctx.send(text)
+
+@bot.command()
+async def ozone_layer(ctx):
+    q = open('text.txt', 'w', encoding='utf-8')
+    text = "Тонкий озоновый слой разрушается под действием химических веществ,выбрасываемых в атмосферу на земле.Основными химикатами, разрушающими стратосферный озон, являются хлорфторуглероды, аэрозолях, чистящих препаратах"
+    q.write(text)
+    await ctx.send(text)
+
+@bot.command()
+async def global_warming(ctx):
+    e = open('text.txt', 'w', encoding='utf-8')
+    text = "Глобальное потепление — это повышение средней температуры на Земле."
+    e.write(text)
+    await ctx.send(text)
+
+@bot.command()
+async def air_pollution(ctx):
+    r = open('text.txt', 'w', encoding='utf-8')
+    text = "Загрязнение воздуха является одной из самых серьезных экологических угроз для здоровья человека.C загрязнением преходят такие болезни как: инсульт, астма и т.д"
+    r.write(text)
+    await ctx.send(text)
+
+@bot.command()
+async def water_mud(ctx):
+    t = open('text.txt', 'w', encoding='utf-8')
+    text = "Загрязнение вод мирового океана – это распространение в них вредных веществ, таких как нефть, пластмасса и т.д"
+    t.write(text)
+    await ctx.send(text)
+
+bot.run("")
